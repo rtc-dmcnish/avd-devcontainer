@@ -22,13 +22,13 @@ RUN pip install --no-cache-dir \
 
 ENV ARISTA_AVD_DIR="/usr/share/ansible/collections/ansible_collections"
 # Install netscaler.adc collection
-RUN ansible-galaxy collection install "arista.avd:>=5.0.0,<6.0.0" -p /usr/share/ansible/collections && \
-    ansible-galaxy collection install -U "arista.avd:>=5.0.0,<6.0.0" -p /usr/share/ansible/collections && \
+RUN ansible-galaxy collection install "arista.avd:==5.7.2" -p /usr/share/ansible/collections && \
     pip3 install -r ${ARISTA_AVD_DIR}/arista/avd/requirements.txt && \
     pip3 install ruamel-yaml && \
     pip3 install black && \
     pip3 install md-toc==8.2.3 && \
-    pip3 install paramiko
+    pip3 install paramiko 
+
 
 
 # Set up non-root user for VSCode
